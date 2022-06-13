@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<h1>我成功來到index.jsp了</h1>
+
 <h3>Welcome ${user.custid}</h3>
 
 <h3><a href="<c:url value="/secure/login.view" />">Login</a></h3>

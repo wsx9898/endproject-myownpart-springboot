@@ -18,23 +18,19 @@ spring:
     encoding: UTF-8
     fallback-to-system-locale: false
 
-#  mvc:
-#    view:
-#      # ViewResolver
-#      prefix: /WEB-INF/views
-#      suffix: .jsp
+  mvc:
+    view:
+      # ViewResolver
+      prefix: /WEB-INF/views
+      suffix: .jsp
 
-  thymeleaf:
-    cache: false
-    prefix: classpath:/templates/    # 設定去templates資料夾找html檔案是成功的
-#    prefix: ../webapp/WEB-INF/views/   #這個行不通
-    suffix: .html
-    encoding: UTF-8
-    mode: HTML5
-
-
-
-
+#  thymeleaf:
+#    cache: false
+#    prefix: classpath:/templates/    # 設定去templates資料夾找html檔案是成功的
+##    prefix: ../webapp/WEB-INF/views/   #這個行不通
+#    suffix: .html
+#    encoding: UTF-8
+#    mode: HTML5
 
 
 
