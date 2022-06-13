@@ -18,7 +18,7 @@ public class PathController {
 	}
 	@RequestMapping(path = "/secure/login.view")
 	public String handlerMethod2() {
-		return "/secure/login";
+		return "secure/login";
 	}
 
 
@@ -38,4 +38,6 @@ public class PathController {
 	public String handlerMethod8() {
 		return "KevinNewCart";
 	}
+
+
 }
