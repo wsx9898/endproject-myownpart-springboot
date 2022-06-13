@@ -18,11 +18,11 @@ spring:
     encoding: UTF-8
     fallback-to-system-locale: false
 
-  mvc:
-    view:
-      # ViewResolver
-      prefix: /WEB-INF/views
-      suffix: .jsp
+#  mvc:
+#    view:
+#      # ViewResolver
+#      prefix: /WEB-INF/views
+#      suffix: .jsp
 
 #  thymeleaf:
 #    cache: false

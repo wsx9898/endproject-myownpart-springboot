@@ -4,8 +4,8 @@ package tw.com.ispan.cma.controller;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
-import tw.com.ispan.cma.domain.ProductBean;
-import tw.com.ispan.cma.service.ProductService;
+import tw.com.ispan.cma.model.ProductBean;
+import tw.com.ispan.cma.model.ProductService;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

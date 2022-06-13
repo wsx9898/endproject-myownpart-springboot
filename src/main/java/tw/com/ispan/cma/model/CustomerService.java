@@ -1,13 +1,10 @@
-package tw.com.ispan.cma.service;
+package tw.com.ispan.cma.model;
 
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import tw.com.ispan.cma.dao.CustomerDAO;
-import tw.com.ispan.cma.domain.CustomerBean;
 
 @Service
 @Transactional

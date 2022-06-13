@@ -1,11 +1,11 @@
-package tw.com.ispan.cma.dao;
-
-import javax.persistence.PersistenceContext;
+package tw.com.ispan.cma.model.dao;
 
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+import tw.com.ispan.cma.model.CustomerDAO;
+import tw.com.ispan.cma.model.CustomerBean;
 
-import tw.com.ispan.cma.domain.CustomerBean;
+import javax.persistence.PersistenceContext;
 
 @Repository
 public class CustomerDAOHibernate implements CustomerDAO {

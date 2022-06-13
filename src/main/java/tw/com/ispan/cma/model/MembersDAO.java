@@ -1,6 +1,4 @@
-package tw.com.ispan.cma.dao;
-
-import tw.com.ispan.cma.domain.MembersBean;
+package tw.com.ispan.cma.model;
 
 import java.util.Date;
 import java.util.List;

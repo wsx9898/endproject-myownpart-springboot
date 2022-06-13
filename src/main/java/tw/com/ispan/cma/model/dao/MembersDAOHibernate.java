@@ -1,22 +1,21 @@
-package tw.com.ispan.cma.dao;
+package tw.com.ispan.cma.model.dao;
 
-import java.util.Date;
-import java.util.List;
+import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+import tw.com.ispan.cma.model.MembersDAO;
+import tw.com.ispan.cma.model.MembersBean;
+
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import tw.com.ispan.cma.domain.MembersBean;
+import java.util.Date;
+import java.util.List;
 
 
 @Repository
-public class MembersDAOHibernate implements MembersDAO{
+public class MembersDAOHibernate implements MembersDAO {
 	@PersistenceContext
 	private Session session = null;
 

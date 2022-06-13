@@ -12,8 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import tw.com.ispan.cma.domain.CustomerBean;
-import tw.com.ispan.cma.service.CustomerService;
+import tw.com.ispan.cma.model.CustomerBean;
+import tw.com.ispan.cma.model.CustomerService;
 
 @Controller
 public class LoginController {
@@ -25,6 +25,7 @@ public class LoginController {
 	
 	@RequestMapping(path = {"/secure/login.controller"})
 	public String handlerMethod(Locale locale, Model model, String username, String password, HttpSession session) {
+		System.out.println("LoginController有被呼叫到");
 //接收資料
 //驗證資料
 		Map<String, String> errors = new HashMap<String, String>();

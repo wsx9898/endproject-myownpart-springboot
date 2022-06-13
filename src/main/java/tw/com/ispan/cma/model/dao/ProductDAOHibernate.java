@@ -1,8 +1,9 @@
-package tw.com.ispan.cma.dao;
+package tw.com.ispan.cma.model.dao;
 
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
-import tw.com.ispan.cma.domain.ProductBean;
+import tw.com.ispan.cma.model.ProductDAO;
+import tw.com.ispan.cma.model.ProductBean;
 
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
