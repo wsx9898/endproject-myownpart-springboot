@@ -128,7 +128,7 @@
 	//一開始就跟servlet要求新增的購物車資訊了
 	function CartCheckOut() {
 		$.ajax({
-			url: "http://localhost:8081/boot/CartServlet",
+			url: "http://localhost:8081/boot/public/api/callCartController",
 			method: "post",
 			data: {
 				pdaction: "cartCheckOut2",
@@ -203,7 +203,7 @@
 	//增加按鈕
 	function addSingleProduct(id){
 		$.ajax({
-			url: "http://localhost:8081/boot/CartServlet",
+			url: "http://localhost:8081/boot/public/api/callCartController",
 			method: "post",
 			data: {
 				pdaction: "addToCart",
@@ -225,7 +225,7 @@
 	//減少按鈕
 	function minusSingleProduct(id){
 		$.ajax({
-			url: "http://localhost:8081/boot/CartServlet",
+			url: "http://localhost:8081/boot/public/api/callCartController",
 			method: "post",
 			data: {
 				pdaction: "removeProductFromCart",
@@ -251,7 +251,7 @@
 	//按下移除按鈕會送ID到後端把此session中此商品全部移除
 	function removeSingleProducts(id){
 		$.ajax({
-			url: "http://localhost:8081/boot/CartServlet",
+			url: "http://localhost:8081/boot/public/api/callCartController",
 			method: "post",
 			data: {
 				pdaction: "removeSingleProducts",
