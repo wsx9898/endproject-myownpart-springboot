@@ -12,8 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import tw.com.ispan.cma.model.CustomerBean;
-import tw.com.ispan.cma.model.CustomerService;
+import tw.com.ispan.cma.domain.CustomerBean;
+import tw.com.ispan.cma.service.CustomerService;
 
 @Controller
 public class LoginController {

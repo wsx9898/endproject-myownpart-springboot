@@ -35,9 +35,11 @@ public class PathController {
 
 
 	@RequestMapping("/EndProject/KevinNewCart.view")
-	public String handlerMethod8() {
+	public String handlerMethod5() {
 		return "KevinNewCart";
 	}
 
+	@RequestMapping("/registerFormHTML.view")
+	public String handlerMethod6(){ return "registerForm"; }
 
 }

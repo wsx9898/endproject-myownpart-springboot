@@ -5,8 +5,8 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import tw.com.ispan.cma.model.MembersBean;
-import tw.com.ispan.cma.model.MembersService;
+import tw.com.ispan.cma.domain.MembersBean;
+import tw.com.ispan.cma.service.MembersService;
 
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;

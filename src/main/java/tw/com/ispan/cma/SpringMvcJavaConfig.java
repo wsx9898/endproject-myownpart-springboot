@@ -85,7 +85,7 @@ public class SpringMvcJavaConfig implements WebMvcConfigurer {
 
 		// Important!!
 		// th_page1.html, th_page2.html, ...
-		viewResolver.setViewNames(new String[] { "th_*","KevinNewCart","KevinProductInfo"});
+		viewResolver.setViewNames(new String[] { "th_*","KevinNewCart","KevinProductInfo","registerForm"});
 
 		return viewResolver;
 	}

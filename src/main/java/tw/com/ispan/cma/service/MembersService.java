@@ -1,8 +1,10 @@
-package tw.com.ispan.cma.model;
+package tw.com.ispan.cma.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import tw.com.ispan.cma.dao.MembersDAO;
+import tw.com.ispan.cma.domain.MembersBean;
 
 import java.util.ArrayList;
 import java.util.List;

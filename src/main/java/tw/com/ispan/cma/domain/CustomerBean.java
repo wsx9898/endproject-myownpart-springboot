@@ -1,4 +1,4 @@
-package tw.com.ispan.cma.model;
+package tw.com.ispan.cma.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

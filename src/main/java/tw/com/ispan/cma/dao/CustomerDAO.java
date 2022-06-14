@@ -1,4 +1,6 @@
-package tw.com.ispan.cma.model;
+package tw.com.ispan.cma.dao;
+
+import tw.com.ispan.cma.domain.CustomerBean;
 
 public interface CustomerDAO {
 	public abstract CustomerBean select(String custid);
