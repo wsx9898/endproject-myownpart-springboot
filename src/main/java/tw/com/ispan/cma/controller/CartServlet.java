@@ -87,7 +87,7 @@ public class CartServlet extends HttpServlet {
                 request.getSession().setAttribute("cart", cartList);
                 totalQtyInCart = totalQTYinCart(cartList);
             }
-            out.print("購物車新增成功" + totalQtyInCart); //如果有改動會影響checkout.jsp做substring
+            out.print("購物車新增成功:不分品項商品總數 = " + totalQtyInCart); //如果有改動會影響checkout.jsp做substring
             out.close();
         } else if (pdaction != null && pdaction.equals("removeProductFromCart")) {
             HashMap<Integer, Integer> temp = (HashMap<Integer, Integer>) request.getSession().getAttribute("cart"); //把session存放的map拿出來
