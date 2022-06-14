@@ -111,7 +111,7 @@
 <script src="../js/owl.carousel.min.js"></script>
 <script src="../js/jquery.mobile-menu.min.js"></script>
 <!-- JavaScript DIY-->
-<script src="../js/QtyButton.js"></script>
+<!--<script src="../js/QtyButton.js"></script>-->
 <script src="../js/removeItem.js"></script>
 <script src="../js/appendItem.js"></script>
 
@@ -125,32 +125,10 @@
 	//一開始就跟servlet要求新增的購物車資訊了
 	CartCheckOut();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	//一開始就跟servlet要求新增的購物車資訊了
 	function CartCheckOut() {
 		$.ajax({
-			url: "http://localhost:8080/endProject_war/CartServlet",
+			url: "http://localhost:8081/boot/CartServlet",
 			method: "post",
 			data: {
 				pdaction: "cartCheckOut2",
@@ -214,12 +192,66 @@
 		);
 		ItemCnt++;
 	}
-	//購物車有多少項就新增幾列
+	//購物車有多少項就新增幾列End
+
+//購物車增減按鈕順便送到後端更新
+	$("#add").on("click", addSingleProduct(id));
+
+	$("#minus").on("click", minusSingleProduct(id));
+
+
+	//增加按鈕
+	function addSingleProduct(id){
+		$.ajax({
+			url: "http://localhost:8081/boot/CartServlet",
+			method: "post",
+			data: {
+				pdaction: "addToCart",
+				editProductId: `${id}`,
+				quantity: "1"
+			},
+			success: function (res) {
+				//應該印出  "此商品已完全移除，購物車內目前商品數量="+ totalQtyInCart
+				// alert(res);
+				alert("商品已加一");
+			},
+			error: function () {
+				alert("cart error");
+			}
+		});
+	};
+	//增加按鈕
+
+	//減少按鈕
+	function minusSingleProduct(id){
+		$.ajax({
+			url: "http://localhost:8081/boot/CartServlet",
+			method: "post",
+			data: {
+				pdaction: "removeProductFromCart",
+				//創出來的按鈕一開始就知道自己要傳的removeProductFromCart(id)是多少
+				editProductId: `${id}`
+			},
+			success: function (res) {
+				// alert(res);
+				alert("商品已減一");
+			},
+			error: function () {
+				alert("cart error");
+			}
+		});
+	};
+	//減少按鈕
+
+//購物車增減按鈕順便送到後端更新
+
+
+
 
 	//按下移除按鈕會送ID到後端把此session中此商品全部移除
 	function removeSingleProducts(id){
 		$.ajax({
-			url: "http://localhost:8080/endProject_war/CartServlet",
+			url: "http://localhost:8081/boot/CartServlet",
 			method: "post",
 			data: {
 				pdaction: "removeSingleProducts",
@@ -236,6 +268,74 @@
 			}
 		});
 	};
+
+
+	//直接先把QtyButton搬過來，原本的連結已經comment掉了
+	function plus(quantity) {
+		// Get the field name
+		fieldName = quantity;
+		//get ID//把quantity1的英文直接置換成空字串再轉乘int
+		var realId = parseInt(quantity.replace("quantity",""));
+		// Get its current value
+		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+		// If is not undefined
+		if (!isNaN(currentVal)) {
+			// Increment
+			$("input[name=" + fieldName + "]").val(currentVal + 1);
+		} else {
+			// Otherwise put a 0 there
+			$("input[name=" + fieldName + "]").val(0);
+		}
+		// 順便呼叫後端也更新
+		addSingleProduct(realId);
+		//這邊只要有按增減就會執行
+		calculateTotal(fieldName);
+	}
+
+	function minus(quantity) {
+		// Get the field name
+		fieldName = quantity;
+		//get ID//把quantity1的英文直接置換成空字串再轉乘int
+		var realId = parseInt(quantity.replace("quantity",""));
+		// Get its current value
+		var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+		// If it isn't undefined or its greater than 0
+		if (!isNaN(currentVal) && currentVal > 0) {
+			// Decrement one
+			$("input[name=" + fieldName + "]").val(currentVal - 1);
+		} else {
+			// Otherwise put a 0 there
+			$("input[name=" + fieldName + "]").val(0);
+		}
+		// 順便呼叫後端也更新
+		minusSingleProduct(realId);
+		//這邊只要有按增減就會執行
+		calculateTotal(fieldName);
+
+	}
+
+	//先放這裡一開網頁就更新總價錢
+	//現在改成按了才會知道是更新哪邊的假錢所以一開始不會更新
+	calculateTotal();
+
+	function calculateTotal(fieldName) {
+		//因為在增減按鈕的fieldName是VAR所以還可以傳遞過來
+		console.log(fieldName);
+		theNum = `${fieldName}`.match(/\d+/)[0];
+		console.log(theNum);
+		//第一項產品總價會即時更新Start
+		//把單價的錢符號拿掉
+		getNum = $(`#price${theNum}`).html().replace("$", "");
+		//單價轉成數字
+		toInt = parseInt(getNum);
+		//讀取目前購買的數量
+		pro1Qty = $(`#quantity${theNum}`).prop("value");
+		//把單價乘以數量
+		$(`#totalPrice${theNum}`).text("$" + getNum * pro1Qty);
+
+		//第一項產品總價會即時更新End
+	}
+	//直接先把QtyButton搬過來，原本的連結已經comment掉了
 </script>
 
 

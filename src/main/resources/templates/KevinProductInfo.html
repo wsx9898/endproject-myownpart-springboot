@@ -52,8 +52,8 @@
                                             <div class="new-label new-top-left">New</div>
                                             <div class="product-image">
                                                 <div class="product-full">
-                                                    <img id="product-zoom" src="到時候圖片網址要被取代"
-                                                         data-zoom-image="到時候圖片網址要被取代" alt="product-image"/>
+                                                    <img id="product-zoom" src="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
+                                                         data-zoom-image="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg" alt="product-image"/>
                                                 </div>
                                                 <div class="more-views">
                                                     <div class="slider-items-products">
@@ -63,25 +63,25 @@
                                                                     class="slider-items slider-width-col4 block-content">
                                                                 <div class="more-views-items">
                                                                     <a id="product-zoom01" href="#"
-                                                                       data-image="到時候圖片網址要被取代"
-                                                                       data-zoom-image="到時候圖片網址要被取代">
-                                                                        <img id="product-zoom1" src="到時候圖片網址要被取代"
+                                                                       data-image="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
+                                                                       data-zoom-image="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg">
+                                                                        <img id="product-zoom1" src="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
                                                                              alt="product-image"/>
                                                                     </a>
                                                                 </div>
                                                                 <div class="more-views-items">
                                                                     <a id="product-zoom02" href="#"
-                                                                       data-image="到時候圖片網址要被取代"
-                                                                       data-zoom-image="到時候圖片網址要被取代">
-                                                                        <img id="product-zoom2" src="到時候圖片網址要被取代"
+                                                                       data-image="/Users/kevinchan/Desktop/image/ring.jpg"
+                                                                       data-zoom-image="/Users/kevinchan/Desktop/image/ring.jpg">
+                                                                        <img id="product-zoom2" src="/Users/kevinchan/Desktop/image/ring.jpg"
                                                                              alt="product-image"/>
                                                                     </a>
                                                                 </div>
                                                                 <div class="more-views-items">
                                                                     <a id="product-zoom03" href="#"
-                                                                       data-image="到時候圖片網址要被取代"
-                                                                       data-zoom-image="到時候圖片網址要被取代">
-                                                                        <img id="product-zoom3" src="到時候圖片網址要被取代"
+                                                                       data-image="/Users/kevinchan/Desktop/image/ring.jpg"
+                                                                       data-zoom-image="/Users/kevinchan/Desktop/image/ring.jpg">
+                                                                        <img id="product-zoom3" src="/Users/kevinchan/Desktop/image/ring.jpg"
                                                                              alt="product-image"/>
                                                                     </a>
                                                                 </div>
@@ -911,21 +911,21 @@
 <!-- JavaScript -->
 
 <script>
-    //購物車數量的增減按鈕
+    //購物車數量的增減按鈕(僅前端計算而已)
     function minus() {
         var result = document.getElementById('qty');
         var qty = result.value;
         if (!isNaN(qty) && qty != 0) result.value--;
-        // return false;
+
     };
 
     function plus() {
         var result = document.getElementById('qty');
         var qty = result.value;
         if( !isNaN( qty )) result.value++;
-        // return false;
+
     };
-    //購物車數量的增減按鈕
+    //購物車數量的增減按鈕(僅前端計算而已)
 
 
     //設定一個全域變數
@@ -979,10 +979,10 @@
     //呼叫CartServlet加入購物車
     function addProductToCart(pid) {
         $.ajax({
-            //照理說不用http://localhost:8080/labweb_register_0605_test_war/這行
             //但是如果只有CartServlet會報錯在瀏覽器
-            //POST "http://localhost:8080/labweb_register_0605_test_war/CartServlet"
-            url: "http://localhost:8080/endProject_war/CartServlet",
+            //POST "http://localhost:8080/endProject_war/CartServlet"
+            //http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/CartServlet
+            url: "http://bosian.ddns.net:8080/IIIFinalServlet_war_exploded/CartServlet",
             method: "post",
             data: {
                 pdaction: "addToCart",
@@ -1009,7 +1009,7 @@
     //這是測試按鈕確認有載入資料
 
 </script>
-<script src="../js/jquery.min.js"></script>
+<!--<script src="../js/jquery.min.js"></script>-->
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/owl.carousel.min.js"></script>
