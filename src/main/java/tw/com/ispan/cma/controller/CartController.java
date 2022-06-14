@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
 
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,21 +43,28 @@ public class CartController {
         //照操的不知道為何要有這項
     }
 
-    @GetMapping(path = {"/callCartController"})
+    @PostMapping (path = {"/callCartController"})
     public @ResponseBody String handlerMethod(Model model, String pdaction, String editProductId,
-                                              String quantity0, ProductBean bean, BindingResult bindingResult){
+                                              String quantity, ProductBean bean, BindingResult bindingResult){
         System.out.println("callCartController這功能有被呼叫到");
         System.out.println("pdaction = " + pdaction);
         System.out.println("editProductId = " + editProductId);
-        System.out.println("quantity0 = " + quantity0);
+        System.out.println("quantity = " + quantity);
 //接收資料
 //轉換資料
         Map<String, String> errors = new HashMap<String, String>();
         model.addAttribute("errors", errors);
 
         //暫時這樣解決，不確定正式放這嗎
-        int productId  = Integer.parseInt(editProductId);
-        int quantity  = Integer.parseInt(quantity0);
+        //因應cartCheckOut2不需要這兩個參數
+        int productId = 0;
+        if(editProductId!=null) {
+            productId = Integer.parseInt(editProductId);
+        }
+        int qty = 0;
+        if(quantity!=null) {
+            qty = Integer.parseInt(quantity);
+        }
 
         if(bindingResult!=null && bindingResult.hasFieldErrors()) {
             if(bindingResult.hasFieldErrors("id")) {
@@ -98,20 +104,42 @@ public class CartController {
             if (httpSession.getAttribute("cart") != null) {  //如果購物車session已存在
                 HashMap<Integer, Integer> temp = (HashMap<Integer, Integer>) httpSession.getAttribute("cart"); //把購物車session的map抓出
                 if (temp.get(productId) == null) {   //如果map裡面抓不到這個productId的key
-                    temp.put(productId, quantity); //map新增一個productId,qty
+                    temp.put(productId, qty); //map新增一個productId,qty
                 } else {
-                    temp.put(productId, temp.get(productId) + quantity);
+                    temp.put(productId, temp.get(productId) + qty);
                 }
                 httpSession.removeAttribute("cart"); //把舊有的購物車session移除
                 httpSession.setAttribute("cart", temp); //把新的list存回購物車session
                 totalQtyInCart = totalQTYinCart(temp);
             } else {
                 //如果購物車session不存在 就直接new一個session把map存進去
-                cartList.put(productId, quantity);
+                cartList.put(productId, qty);
                 httpSession.setAttribute("cart", cartList);
                 totalQtyInCart = totalQTYinCart(cartList);
             }
-            return ("購物車新增成功" + totalQtyInCart);  //如果有改動會影響checkout.jsp做substring
+            return ("購物車新增成功:不分品項商品總數 = "+ totalQtyInCart);  //如果有改動會影響checkout.jsp做substring
+        }else if (pdaction != null && pdaction.equals("removeProductFromCart")) {
+            HashMap<Integer, Integer> temp = (HashMap<Integer, Integer>) httpSession.getAttribute("cart"); //把session存放的map拿出來
+            String output = "購物車內並沒有此商品";
+            if (temp.get(productId) != null) {
+                //如果此商品數量剩餘1 直接把產品從map移除 ; 商品數量大於1 則 -1
+                if (temp.get(productId) == 1) {
+                    temp.remove(productId);
+                } else {
+                    if (qty == 1) {
+                        temp.put(productId, temp.get(productId) - 1);
+                    } else if (qty > 0 && qty < temp.get(productId)) { //判斷一下前端輸入的值是否在合法範圍
+                        temp.put(productId, qty);
+                    } else {
+                        return ("Unexpect error");
+                    }
+                    output = "商品已移除，購物車內不分品項商品數量=";
+                }
+            }
+            httpSession.removeAttribute("cart"); //把舊有的購物車session移除
+            httpSession.setAttribute("cart", temp); //把新的Map存回購物車session
+            totalQtyInCart = totalQTYinCart(temp);
+            return (output + totalQtyInCart);
         }else if (pdaction != null && pdaction.equals("removeSingleProducts")) {
             HashMap<Integer, Integer> temp = (HashMap<Integer, Integer>) httpSession.getAttribute("cart"); //把session存放的map拿出來
             String output = "購物車內並沒有此商品";
@@ -122,7 +150,7 @@ public class CartController {
                 } else {
                     return "完全移除商品有誤";
                 }
-                output = "此商品已完全移除，購物車內目前商品數量=";
+                output = "此商品已完全移除，購物車內不分品項商品數量=";
             }
             httpSession.removeAttribute("cart"); //把舊有的購物車session移除
             httpSession.setAttribute("cart", temp); //把新的Map存回購物車session
