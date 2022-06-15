@@ -26,12 +26,12 @@ spring:
 #      prefix: /WEB-INF/views
 #      suffix: .jsp
 
-#  thymeleaf:
-#    cache: false
-#    prefix: classpath:/templates/    # 設定去templates資料夾找html檔案是成功的
-#    suffix: .html
-#    encoding: UTF-8
-#    mode: HTML5
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/    # 設定去templates資料夾找html檔案是成功的
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
 
 
 
