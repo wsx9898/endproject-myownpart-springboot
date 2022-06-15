@@ -26,18 +26,15 @@ public class CartControllerSimplizeIng {
     @Autowired
     private HttpSession httpSession;
 
-    @InitBinder
-    public void init(WebDataBinder webDataBinder){
-        //照操的不知道為何要有這項
-    }
-
     @PostMapping (path = {"/callCartController"})
     public String handlerMethod(Model model, String pdaction, String editProductId,
-                                              String quantity, ProductBean bean, BindingResult bindingResult){
+                                              String quantity,String json, ProductBean bean, BindingResult bindingResult){
         System.out.println("callCartController這功能有被呼叫到");
         System.out.println("pdaction = " + pdaction);
         System.out.println("editProductId = " + editProductId);
         System.out.println("quantity = " + quantity);
+        System.out.println("json = " + quantity);
+
 //接收資料
 //轉換資料
         Map<String, String> errors = new HashMap<String, String>();
