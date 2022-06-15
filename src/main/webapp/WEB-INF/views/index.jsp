@@ -21,6 +21,7 @@
 <h3><a href="<c:url value="/EndProject/KevinProductInfo.view" />">KevinProductInfo.html</a></h3>
 <h3><a href="<c:url value="/EndProject/KevinNewCart.view" />">KevinNewCart.html</a></h3>
 <h3><a href="<c:url value="/registerFormHTML.view" />">MembersForm.html</a></h3>
+<h3><a href="<c:url value="/KevinDashBoard.view" />">KevinDashBoard.html</a></h3>
 
 </body>
 </html>

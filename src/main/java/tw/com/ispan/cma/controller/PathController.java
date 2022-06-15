@@ -42,4 +42,10 @@ public class PathController {
 	@RequestMapping("/registerFormHTML.view")
 	public String handlerMethod6(){ return "registerForm"; }
 
+	@RequestMapping("/KevinDashBoard.view")
+	public String handlerMethod7(){ return "KevinDashBoard"; }
+
+//Thymeleaf每次都要去SpringMVCJavaConfig額外標註
+
+
 }
