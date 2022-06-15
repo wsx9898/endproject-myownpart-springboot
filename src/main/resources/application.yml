@@ -18,6 +18,8 @@ spring:
     encoding: UTF-8
     fallback-to-system-locale: false
 
+
+##這兩個都移去JavaMVCConfig了
 #  mvc:
 #    view:
 #      # ViewResolver
