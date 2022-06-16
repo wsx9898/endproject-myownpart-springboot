@@ -8,8 +8,9 @@ import java.util.List;
 public interface MembersDAO {
 
 	public abstract MembersBean select(Integer memberId);
-	
-	
+
+	public abstract MembersBean selectByAccount(String memberAccount);
+
 	public abstract List<MembersBean> select();
 	
 

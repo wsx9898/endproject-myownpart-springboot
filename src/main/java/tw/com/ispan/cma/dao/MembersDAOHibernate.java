@@ -29,6 +29,19 @@ public class MembersDAOHibernate implements MembersDAO {
 		}
 		return null;
 	}
+
+
+	@Override
+	public MembersBean selectByAccount(String memberAccount){
+		if(memberAccount!=null && memberAccount.length()!=0){
+			return  this.getSession().get(MembersBean.class, memberAccount);//這行有問題，方法裡面沒有用memberAccount撈
+//			return  this.getSession().get(MembersBean.class, 1);//所以只能用id去資料庫撈bean嗎？
+		}
+		return null;
+	}
+
+
+
 	@Override
 	public List<MembersBean> select() {
 //		return this.getSession().createQuery(

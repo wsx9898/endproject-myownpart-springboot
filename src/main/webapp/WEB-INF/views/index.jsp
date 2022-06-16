@@ -15,7 +15,7 @@
 
 <h3><a href="<c:url value="/secure/login.view" />">Login</a></h3>
 <h3><a href="<c:url value="/pages/register/registerForm.view" />">MembersForm</a></h3>
-
+<h3><a href="<c:url value="/secure/loginKevin.view" />">LoginKevin</a></h3>
 
 <%--Thymeleaf每次都要去SpringMVCJavaConfig額外標註--%>
 <h3><a href="<c:url value="/EndProject/KevinProductInfo.view" />">KevinProductInfo.html</a></h3>
