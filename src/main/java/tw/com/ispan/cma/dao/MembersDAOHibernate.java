@@ -41,15 +41,23 @@ public class MembersDAOHibernate implements MembersDAO {
 			criteriaQuery = criteriaQuery.where(criteriaBuilder.like(root.get("memberAccount"),memberAccount));
 
 			TypedQuery<MembersBean> typedQuery = this.getSession().createQuery(criteriaQuery);
+
+			//memberAccount只是唯一的不可能抓出List
 //			List<MembersBean> result = typedQuery.getResultList();
 //			for(MembersBean whateverBean:result){
 //				System.out.println("whateverBean.getMemberId() =" + whateverBean.getMemberId());
 //			}
 
-			MembersBean beanSelectByAccount = typedQuery.getSingleResult();
-			System.out.println("beanSelectByAccount.getMemberAccouunt() = " + beanSelectByAccount.getMemberAccouunt());
-			System.out.println("beanSelectByAccount.getMemberPassword() = " + beanSelectByAccount.getMemberPassword());
-			return beanSelectByAccount;
+			try{
+				MembersBean beanSelectByAccount = typedQuery.getSingleResult();
+				System.out.println("beanSelectByAccount.getMemberAccouunt() = " + beanSelectByAccount.getMemberAccouunt());
+				System.out.println("beanSelectByAccount.getMemberPassword() = " + beanSelectByAccount.getMemberPassword());
+
+				return beanSelectByAccount;
+			}catch (Exception e){
+				System.out.println("typedQuery.getSingleResult() is null");
+				return null;
+			}
 		}
 		return null;
 	}

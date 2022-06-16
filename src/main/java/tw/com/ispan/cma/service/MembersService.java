@@ -17,23 +17,17 @@ public class MembersService {
 	@Autowired
 	private MembersDAO membersDao;
 
-
 	@Transactional(readOnly = true)
 	public MembersBean login(String memberAccount, String password) {
-		System.out.println("現在被KevinLoginController呼叫到了");
+		//依據輸入的memberAccount去找相對應的bean
 		MembersBean bean = membersDao.selectByAccount(memberAccount);
 
 		if(bean!=null) {
-			System.out.println("bean!=null成立");
 			if(password!=null) {
-				System.out.println("password!=null成立");
+				//pass為資料庫抓出來正確的密碼
 				String pass = bean.getMemberPassword();
-
-				System.out.println("pass = " + pass);
-				System.out.println("password = " + password);
-
+				//驗證輸入的密碼是否相等資料庫抓出來的密碼
 				if(pass.equals(password)) {
-					System.out.println("pass.equals(password)成立");
 					return bean;
 				}
 			}

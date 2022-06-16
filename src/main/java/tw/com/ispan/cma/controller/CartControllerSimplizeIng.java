@@ -23,12 +23,9 @@ public class CartControllerSimplizeIng {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private HttpSession httpSession;
-
     @PostMapping (path = {"/callCartController"})
-    public String handlerMethod(Model model, String pdaction, String editProductId,
-                                              String quantity,String json, ProductBean bean, BindingResult bindingResult){
+    public String handlerMethod(Model model, String pdaction, String editProductId, String quantity,
+                                String json, ProductBean bean, BindingResult bindingResult,HttpSession httpSession){
         System.out.println("callCartController這功能有被呼叫到");
         System.out.println("pdaction = " + pdaction);
         System.out.println("editProductId = " + editProductId);
