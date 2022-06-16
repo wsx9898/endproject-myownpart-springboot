@@ -33,25 +33,31 @@ public class MembersDAOHibernate implements MembersDAO {
 
 	@Override
 	public MembersBean selectByAccount(String memberAccount){
+		// select * from members where member_accouunt LIKE "apple123";
 		if(memberAccount!=null && memberAccount.length()!=0){
-			return  this.getSession().get(MembersBean.class, memberAccount);//這行有問題，方法裡面沒有用memberAccount撈
-//			return  this.getSession().get(MembersBean.class, 1);//所以只能用id去資料庫撈bean嗎？
+			CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
+			CriteriaQuery<MembersBean> criteriaQuery = criteriaBuilder.createQuery(MembersBean.class);
+			Root<MembersBean> root = criteriaQuery.from(MembersBean.class);
+			criteriaQuery = criteriaQuery.where(criteriaBuilder.like(root.get("memberAccount"),memberAccount));
+
+			TypedQuery<MembersBean> typedQuery = this.getSession().createQuery(criteriaQuery);
+//			List<MembersBean> result = typedQuery.getResultList();
+//			for(MembersBean whateverBean:result){
+//				System.out.println("whateverBean.getMemberId() =" + whateverBean.getMemberId());
+//			}
+
+			MembersBean beanSelectByAccount = typedQuery.getSingleResult();
+			System.out.println("beanSelectByAccount.getMemberAccouunt() = " + beanSelectByAccount.getMemberAccouunt());
+			System.out.println("beanSelectByAccount.getMemberPassword() = " + beanSelectByAccount.getMemberPassword());
+			return beanSelectByAccount;
 		}
 		return null;
 	}
-
-
-
 	@Override
 	public List<MembersBean> select() {
-//		return this.getSession().createQuery(
-//				"FROM MembersBean", MembersBean.class).list();
-		
 		CriteriaBuilder criteriaBuilder = this.getSession().getCriteriaBuilder();
 		CriteriaQuery<MembersBean> criteriaQuery = criteriaBuilder.createQuery(MembersBean.class);
-		
-		
-		Root<MembersBean> root = criteriaQuery.from(MembersBean.class);
+//		Root<MembersBean> root = criteriaQuery.from(MembersBean.class);//??
 		TypedQuery<MembersBean> typedQuery = this.getSession().createQuery(criteriaQuery);
 		List<MembersBean> result = typedQuery.getResultList();
 		if(result!=null && !result.isEmpty()) {

@@ -21,12 +21,19 @@ public class MembersService {
 	@Transactional(readOnly = true)
 	public MembersBean login(String memberAccount, String password) {
 		System.out.println("現在被KevinLoginController呼叫到了");
-		MembersBean bean = membersDao.selectByAccount(memberAccount);//這行目前有問屜
-		System.out.println("bean.getMemberAccouunt() = " + bean.getMemberAccouunt());//現在寫死固定拿第一個帳號apple123
+		MembersBean bean = membersDao.selectByAccount(memberAccount);
+
 		if(bean!=null) {
-			if(password!=null && password.length()!=0) {
+			System.out.println("bean!=null成立");
+			if(password!=null) {
+				System.out.println("password!=null成立");
 				String pass = bean.getMemberPassword();
-				if(pass == password) {
+
+				System.out.println("pass = " + pass);
+				System.out.println("password = " + password);
+
+				if(pass.equals(password)) {
+					System.out.println("pass.equals(password)成立");
 					return bean;
 				}
 			}

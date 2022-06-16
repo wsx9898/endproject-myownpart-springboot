@@ -50,9 +50,7 @@ public class KevinLoginController {
 		
 //呼叫model
 		//自己有改寫memberDAO/Service/Hibernate了
-		System.out.println("再來要執行MembersBean bean = membersService.login(username, password);");
-		MembersBean bean = membersService.login(username, password);//這行有問題
-		System.out.println("MembersBean bean有錯誤，應該不會印出這行");
+		MembersBean bean = membersService.login(username, password);
 
 //根據model執行結果，導向view
 		if(bean==null) {
