@@ -192,7 +192,7 @@
 	}
 	//購物車有多少項就新增幾列End
 
-//購物車增減按鈕順便送到後端更新
+///購物車增減按鈕順便送到後端更新
 	$("#add").on("click", addSingleProduct(id));
 
 	$("#minus").on("click", minusSingleProduct(id));
@@ -211,7 +211,7 @@
 			success: function (res) {
 				//應該印出  "此商品已完全移除，購物車內目前商品數量="+ totalQtyInCart
 				// alert(res);
-				alert("商品已加一");
+				// alert("商品已加一");
 			},
 			error: function () {
 				alert("cart error");
@@ -232,7 +232,7 @@
 			},
 			success: function (res) {
 				// alert(res);
-				alert("商品已減一");
+				// alert("商品已減一");
 			},
 			error: function () {
 				alert("cart error");

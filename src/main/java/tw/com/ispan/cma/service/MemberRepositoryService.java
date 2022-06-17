@@ -1,5 +1,6 @@
 package tw.com.ispan.cma.service;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,6 +9,7 @@ import tw.com.ispan.cma.domain.MembersBean;
 import tw.com.ispan.cma.domain.ProductBean;
 
 
+import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,8 +17,25 @@ import java.util.Optional;
 @Service
 @Transactional
 public class MemberRepositoryService {
+
+    @PersistenceContext
+    private Session session = null;
+
+    public Session getSession() {
+        return session;
+    }
     @Autowired
     private MemberRepository memberRepository;
+
+
+    public MembersBean selectByID(Integer memberId){
+        MembersBean bean = null;
+        if(memberId!=null && memberId!=0){
+            return this.getSession().get(MembersBean.class, memberId);
+        }
+        return null;
+    }
+
 
     @Transactional(readOnly = true)
     public List<MembersBean> select(MembersBean bean){
