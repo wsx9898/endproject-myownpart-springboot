@@ -13,7 +13,7 @@
 <title>Login</title>
 </head>
 <body>
-<h1>LoginKevin!!!!!</h1>
+<h1>LoginKevin.jsp</h1>
 
 <h3><s:message code="login.form.title" /></h3>
 

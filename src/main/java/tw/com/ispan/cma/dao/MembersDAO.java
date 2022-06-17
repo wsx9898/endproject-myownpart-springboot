@@ -12,7 +12,6 @@ public interface MembersDAO {
 	public abstract MembersBean selectByAccount(String memberAccount);
 
 	public abstract List<MembersBean> select();
-	
 
 	public abstract MembersBean insert(MembersBean bean);
 	

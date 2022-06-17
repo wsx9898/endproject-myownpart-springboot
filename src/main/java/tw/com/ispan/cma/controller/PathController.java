@@ -46,10 +46,16 @@ public class PathController {
 	public String handlerMethod7(){ return "KevinDashBoard"; }
 
 
-	@RequestMapping(path = "/secure/loginKevin.view")
+	@RequestMapping(path = "loginKevin.view")
 	public String handlerMethod21() {
-		return "secure/loginKevin";
+		return "loginKevin";
 	}
+
+	@RequestMapping(path = "/secure/loginTony.view")
+	public String handlerMethod22() {
+		return "loginTony";
+	}
+
 
 //Thymeleaf每次都要去SpringMVCJavaConfig額外標註
 

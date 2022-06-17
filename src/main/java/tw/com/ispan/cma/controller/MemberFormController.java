@@ -5,6 +5,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import tw.com.ispan.cma.domain.MembersBean;
 import tw.com.ispan.cma.service.MembersService;
 
@@ -14,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
 
-@Controller
+@RestController
 public class MemberFormController {
     private SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
     String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -238,7 +239,8 @@ public class MemberFormController {
             return "/pages/register/registerForm";
         }else  {
             errors.put("action", "Unknown Action:"+prodaction);
-            return "/pages/register/registerForm";
+//            return "/pages/register/registerForm";
+            return "新增失敗";
         }
     }
     //Email Regex Function

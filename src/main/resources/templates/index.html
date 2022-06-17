@@ -8,21 +8,15 @@
 
 <h1>我成功來到index.html了</h1>
 
+<!--JSP搬過來的-->
+<h3><a th:href="@{loginKevin.view}">LoginKevin.html</a></h3>
+<h3><a th:href="@{secure/loginTony.view}">LoginTony.html</a></h3>
 
-
-<a th:href="@{/secure/login.view}">Login</a>
-<br>
-<a th:href="@{/pages/register/registerForm.view}">registerForm</a>
-<br>
-<a th:href="@{/EndProject/KevinProductInfo.view}">KevinProductInfo.html</a>
-<br>
-<a th:href="@{/EndProject/KevinNewCart.view}">KevinNewCart.html</a>
-<br>
-<a th:href="@{/registerFormHTML.view}">MembersForm.html</a>
-<br>
-<a th:href="@{/KevinDashBoard.view}">KevinDashBoard.html</a>
-
-
-
+<!--Thymeleaf每次都要去SpringMVCJavaConfig額外標註-->
+<h3><a th:href="@{EndProject/KevinProductInfo.view}">KevinProductInfo.html</a></h3>
+<h3><a th:href="@{EndProject/KevinNewCart.view}">KevinNewCart.html</a></h3>
+<h3><a th:href="@{registerFormHTML.view}">MembersForm.html</a></h3>
+<h3><a th:href="@{KevinDashBoard.view}">KevinDashBoard.html</a></h3>
+<!--JSP搬過來的-->
 </body>
 </html>
