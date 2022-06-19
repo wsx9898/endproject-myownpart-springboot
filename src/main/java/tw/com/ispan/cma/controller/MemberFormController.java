@@ -159,9 +159,7 @@ public class MemberFormController {
                 errors.put("memberAddr", "memberAddr has something wrong");
             }
         }
-//		String createUserTemp = request.getParameter("createUser");
         String createUser = "";
-//		String updateUserTemp = request.getParameter("updateUser");
         String updateUser = "";
 //		String memberTelTempTemp = request.getParameter("memberTel");
         String memberTel = "";
@@ -194,7 +192,7 @@ public class MemberFormController {
         if(errors!=null && !errors.isEmpty()) {
             System.out.println("錯誤數量:"+errors.size());
             System.out.println("有錯誤，再丟入填寫頁面顯示");
-            return "/pages/register/registerForm";
+            return "有錯誤，再丟入填寫頁面顯示";
         }
 
 
@@ -220,7 +218,7 @@ public class MemberFormController {
         if(prodaction!=null && prodaction.equals("Select")) {
             List<MembersBean> result = membersService.select(bean);
             session.setAttribute("select", result);
-                    return "/pages/register/registerForm";
+                    return "選取成功";
         } else if(prodaction!=null && prodaction.equals("提交")) {
             MembersBean result = membersService.insert(bean);
             if(result==null) {
@@ -228,7 +226,7 @@ public class MemberFormController {
             } else {
                 session.setAttribute("insert", result);
             }
-            return "/pages/register/registerForm";
+            return "提交成功";
         } else if(prodaction!=null && prodaction.equals("Update")) {
             MembersBean result = membersService.update(bean);
             if(result==null) {
@@ -236,7 +234,7 @@ public class MemberFormController {
             } else {
                 session.setAttribute("update", result);
             }
-            return "/pages/register/registerForm";
+            return "更新成功";
         }else  {
             errors.put("action", "Unknown Action:"+prodaction);
 //            return "/pages/register/registerForm";
