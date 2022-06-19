@@ -33,6 +33,7 @@ public class MemberFormController {
 
     @PostMapping("/member/new")
     public ResponseEntity<?> insert(@RequestBody MembersBean bean, HttpSession session){
+        System.out.println("新增會員方法insert有被呼叫到");
         bean.setUpdateUser((String) session.getAttribute("login"));
         bean.setCreateUser((String) session.getAttribute("login"));
         bean.setCreateDate(new Date());

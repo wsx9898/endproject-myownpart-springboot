@@ -57,131 +57,131 @@
                         </div>
                         <div class="static-contain">
                             <!-- 這邊要更改url!!! -->
-                            <form action="#" th:action="@{/pages/register/registerForm.controller}" method="get">
-                            <fieldset class="group-select">
-                                <ul>
-                                    <li id="billing-new-address-form">
-                                        <fieldset>
-                                            <ul>
-                                                <li>
-                                                    <div class="input-box member-account">
-                                                        <label for="memberAccouuntTemp">帳 號<span class="required">*</span></label>
-                                                        <br> <input type="text" id="memberAccouuntTemp"
-                                                                            name="memberAccouuntTemp" value=""
-                                                                            title="Account" class="input-text ">
-                                                        <br>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <div class="input-box member-password">
-                                                        <label for="memberPasswordTemp">密 碼<span class="required">*</span></label>
-                                                        <br>
-                                                            <input type="text" id="memberPasswordTemp"
-                                                                            name="memberPasswordTemp" value=""
-                                                                            title="Password" class="input-text">
-                                                        <br>
-                                                    </div>
-
-                                                </li>
-                                                <hr>
-                                                <li>
-                                                    <div class="customer-name">
-                                                        <div class="input-box name-lastname">
-                                                            <label for="memberLastnameTemp">姓 氏<span class="required">*</span></label>
-                                                            <br>
-                                                                <input type="text" id="memberLastnameTemp" name="memberLastnameTemp"
-                                                                  value="" title="Last Name" class="input-text ">
+                            <form action="#" th:action="@{/api/member/new}" method="post">
+                                <fieldset class="group-select">
+                                    <ul>
+                                        <li id="billing-new-address-form">
+                                            <fieldset>
+                                                <ul>
+                                                    <li>
+                                                        <div class="input-box member-account">
+                                                            <label for="memberAccouunt">帳 號<span class="required">*</span></label>
+                                                            <br> <input type="text" id="memberAccouunt"
+                                                                        name="memberAccouunt" value=""
+                                                                        title="Account" class="input-text ">
                                                             <br>
                                                         </div>
-                                                        <div class="input-box name-firstname">
-                                                            <label for="memberFirstnameTemp">名 字<span class="required">*</span></label>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="input-box member-password">
+                                                            <label for="memberPassword">密 碼<span class="required">*</span></label>
                                                             <br>
-                                                                <input type="text" id="memberFirstnameTemp" name="memberFirstnameTemp"
+                                                            <input type="text" id="memberPassword"
+                                                                   name="memberPassword" value=""
+                                                                   title="Password" class="input-text">
+                                                            <br>
+                                                        </div>
+
+                                                    </li>
+                                                    <hr>
+                                                    <li>
+                                                        <div class="customer-name">
+                                                            <div class="input-box name-lastname">
+                                                                <label for="memberLastname">姓 氏<span class="required">*</span></label>
+                                                                <br>
+                                                                <input type="text" id="memberLastname" name="memberLastname"
+                                                                       value="" title="Last Name" class="input-text ">
+                                                                <br>
+                                                            </div>
+                                                            <div class="input-box name-firstname">
+                                                                <label for="memberFirstname">名 字<span class="required">*</span></label>
+                                                                <br>
+                                                                <input type="text" id="memberFirstname" name="memberFirstname"
                                                                        value="" title="First Name" class="input-text">
+                                                                <br>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="input-box">
+                                                            <label for="memberBirth">生 日</label>
+                                                            <br>
+                                                            <input
+                                                                    type="text" id="memberBirth" name="memberBirth"
+                                                                    value="" title="Birthday"
+                                                                    class="input-text">
                                                             <br>
                                                         </div>
-                                                    </div>
-                                                </li>
 
-                                                <li>
-                                                    <div class="input-box">
-                                                        <label for="memberBirthTemp">生 日</label>
-                                                        <br>
-                                                            <input
-                                                            type="text" id="memberBirthTemp" name="memberBirthTemp"
-                                                            value="" title="Birthday"
-                                                            class="input-text">
-                                                        <br>
-                                                    </div>
-
-                                                    <div class="input-box">
-                                                        <label f>性 別</label>
-                                                        <br>
-                                                        <input type="radio" id="man" name="memberGenderTemp" value="male" checked>
-                                                        <label for="man">男生</label><br>
-                                                        <input type="radio" id="woman" name="memberGenderTemp" value="female">
-                                                        <label for="woman">女生</label><br>
-                                                        <br>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-box">
-                                                        <label for="memberNicknameTemp">暱 稱</label>
-                                                        <br>
-                                                            <input type="text" id="memberNicknameTemp"
-                                                                   name="memberNicknameTemp" value=""
+                                                        <div class="input-box">
+                                                            <label f>性 別</label>
+                                                            <br>
+                                                            <input type="radio" id="man" name="memberGender" value="male" checked>
+                                                            <label for="man">男生</label><br>
+                                                            <input type="radio" id="woman" name="memberGender" value="female">
+                                                            <label for="woman">女生</label><br>
+                                                            <br>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="input-box">
+                                                            <label for="memberNickname">暱 稱</label>
+                                                            <br>
+                                                            <input type="text" id="memberNickname"
+                                                                   name="memberNickname" value=""
                                                                    title="NickName" class="input-text ">
-                                                        <br>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="input-box">
-                                                        <label for="memberEmailTemp">電子信箱 <span class="required">*</span></label>
-                                                        <br>
-                                                            <input type="text" name="memberEmailTemp"
-                                                                   id="memberEmailTemp" value="" title="Email Address"
+                                                            <br>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="input-box">
+                                                            <label for="memberEmail">電子信箱 <span class="required">*</span></label>
+                                                            <br>
+                                                            <input type="text" name="memberEmail"
+                                                                   id="memberEmail" value="" title="Email Address"
                                                                    class="input-text validate-email">
-                                                        <br>
-                                                    </div>
-                                                </li>
+                                                            <br>
+                                                        </div>
+                                                    </li>
 
-                                                <li>
-                                                    <div class="input-box">
-                                                        <label for="memberTelTemp">手 機 </label>
-                                                        <br>
-                                                            <input type="text" name="memberTelTemp" id="memberTelTemp"
+                                                    <li>
+                                                        <div class="input-box">
+                                                            <label for="memberTel">手 機 </label>
+                                                            <br>
+                                                            <input type="text" name="memberTel" id="memberTel"
                                                                    value="" title="Cellphone"
                                                                    class="input-text required-entry">
-                                                        <br>
-                                                    </div>
-                                                </li>
+                                                            <br>
+                                                        </div>
+                                                    </li>
 
-                                                <li>
-                                                    <label>地 址 </label>
-                                                    <br>
-                                                        <input type="text" title="Street Address" id="memberAddrTemp"
-                                                               name="memberAddrTemp" value=""
+                                                    <li>
+                                                        <label>地 址 </label>
+                                                        <br>
+                                                        <input type="text" title="Street Address" id="memberAddr"
+                                                               name="memberAddr" value=""
                                                                class="input-text required-entry">
-                                                    <br>
-                                                </li>
-                                            </ul>
-                                        </fieldset>
-                                    </li>
-                                    <li class="require"><em class="required">* </em>必填</li>
-                                   <li class="buttons-set">
-                                        <button type="submit" name="prodaction" value="提交">提交按鈕(功能一樣)</button>
-                                    </li>
-                                </ul>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <input type="submit" name="prodaction" value="提交">
-                                            <input type="button" value="Clear" onclick="clearForm()">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </fieldset>
+                                                        <br>
+                                                    </li>
+                                                </ul>
+                                            </fieldset>
+                                        </li>
+                                        <li class="require"><em class="required">* </em>必填</li>
+                                        <li class="buttons-set">
+                                            <button name="prodaction" value="提交">提交按鈕(功能一樣)</button>
+                                        </li>
+                                    </ul>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <input type="submit" name="prodaction" value="">
+                                                <input type="button" value="Clear" onclick="clearForm()">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
                             </form>
                         </div>
                     </div>
@@ -191,6 +191,25 @@
     </div>
     <!--End main-container -->
 </div>
+
+
+<script>
+
+    var memberAccouuntTemp = $(#memberAccouuntTemp).val();
+    var memberPasswordTemp = $(#memberPasswordTemp).val();
+    var memberLastnameTemp = $(#memberLastnameTemp).val();
+    var memberFirstnameTemp = $(#memberFirstnameTemp).val();
+    var memberBirthTemp = $(#memberBirthTemp).val();
+    var memberGenderTemp = $(#memberGenderTemp).val();
+    var memberNicknameTemp = $(#memberNicknameTemp).val();
+    var memberEmailTemp = $(#memberEmailTemp).val();
+    var memberTelTemp = $(#memberTelTemp).val();
+    var memberAddrTemp = $(#memberAddrTemp).val();
+
+</script>
+
+
+
 <!-- JavaScript -->
 <script th:src="@{/js/jquery.min.js}"></script>
 <script th:src="@{/js/bootstrap.min.js}"></script>

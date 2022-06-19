@@ -57,7 +57,7 @@
                         </div>
                         <div class="static-contain">
                             <!-- 這邊要更改url!!! -->
-                            <form action="#" th:action="@{/pages/register/registerForm.controller}" method="post">
+                            <form action="#" th:action="@{/api/member/new}" method="post">
                             <fieldset class="group-select">
                                 <ul>
                                     <li id="billing-new-address-form">
@@ -65,8 +65,8 @@
                                             <ul>
                                                 <li>
                                                     <div class="input-box member-account">
-                                                        <label for="memberAccouuntTemp">帳 號<span class="required">*</span></label>
-                                                        <br> <input type="text" id="memberAccouuntTemp"
+                                                        <label for="memberAccouunt">帳 號<span class="required">*</span></label>
+                                                        <br> <input type="text" id="memberAccouunt"
                                                                             name="memberAccouunt" value=""
                                                                             title="Account" class="input-text ">
                                                         <br>
@@ -75,9 +75,9 @@
 
                                                 <li>
                                                     <div class="input-box member-password">
-                                                        <label for="memberPasswordTemp">密 碼<span class="required">*</span></label>
+                                                        <label for="memberPassword">密 碼<span class="required">*</span></label>
                                                         <br>
-                                                            <input type="text" id="memberPasswordTemp"
+                                                            <input type="text" id="memberPassword"
                                                                             name="memberPassword" value=""
                                                                             title="Password" class="input-text">
                                                         <br>
@@ -88,16 +88,16 @@
                                                 <li>
                                                     <div class="customer-name">
                                                         <div class="input-box name-lastname">
-                                                            <label for="memberLastnameTemp">姓 氏<span class="required">*</span></label>
+                                                            <label for="memberLastname">姓 氏<span class="required">*</span></label>
                                                             <br>
-                                                                <input type="text" id="memberLastnameTemp" name="memberLastname"
+                                                                <input type="text" id="memberLastname" name="memberLastname"
                                                                   value="" title="Last Name" class="input-text ">
                                                             <br>
                                                         </div>
                                                         <div class="input-box name-firstname">
-                                                            <label for="memberFirstnameTemp">名 字<span class="required">*</span></label>
+                                                            <label for="memberFirstname">名 字<span class="required">*</span></label>
                                                             <br>
-                                                                <input type="text" id="memberFirstnameTemp" name="memberFirstname"
+                                                                <input type="text" id="memberFirstname" name="memberFirstname"
                                                                        value="" title="First Name" class="input-text">
                                                             <br>
                                                         </div>
@@ -106,10 +106,10 @@
 
                                                 <li>
                                                     <div class="input-box">
-                                                        <label for="memberBirthTemp">生 日</label>
+                                                        <label for="memberBirth">生 日</label>
                                                         <br>
                                                             <input
-                                                            type="text" id="memberBirthTemp" name="memberBirth"
+                                                            type="text" id="memberBirth" name="memberBirth"
                                                             value="" title="Birthday"
                                                             class="input-text">
                                                         <br>
@@ -127,9 +127,9 @@
                                                 </li>
                                                 <li>
                                                     <div class="input-box">
-                                                        <label for="memberNicknameTemp">暱 稱</label>
+                                                        <label for="memberNickname">暱 稱</label>
                                                         <br>
-                                                            <input type="text" id="memberNicknameTemp"
+                                                            <input type="text" id="memberNickname"
                                                                    name="memberNickname" value=""
                                                                    title="NickName" class="input-text ">
                                                         <br>
@@ -137,10 +137,10 @@
                                                 </li>
                                                 <li>
                                                     <div class="input-box">
-                                                        <label for="memberEmailTemp">電子信箱 <span class="required">*</span></label>
+                                                        <label for="memberEmail">電子信箱 <span class="required">*</span></label>
                                                         <br>
                                                             <input type="text" name="memberEmail"
-                                                                   id="memberEmailTemp" value="" title="Email Address"
+                                                                   id="memberEmail" value="" title="Email Address"
                                                                    class="input-text validate-email">
                                                         <br>
                                                     </div>
@@ -148,9 +148,9 @@
 
                                                 <li>
                                                     <div class="input-box">
-                                                        <label for="memberTelTemp">手 機 </label>
+                                                        <label for="memberTel">手 機 </label>
                                                         <br>
-                                                            <input type="text" name="memberTel" id="memberTelTemp"
+                                                            <input type="text" name="memberTel" id="memberTel"
                                                                    value="" title="Cellphone"
                                                                    class="input-text required-entry">
                                                         <br>
@@ -160,7 +160,7 @@
                                                 <li>
                                                     <label>地 址 </label>
                                                     <br>
-                                                        <input type="text" title="Street Address" id="memberAddrTemp"
+                                                        <input type="text" title="Street Address" id="memberAddr"
                                                                name="memberAddr" value=""
                                                                class="input-text required-entry">
                                                     <br>

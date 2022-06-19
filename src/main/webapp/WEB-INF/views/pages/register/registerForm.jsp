@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="description" content="">
 <meta name="author" content="">
 <title>測試會員後端介面</title>
@@ -41,6 +40,7 @@
 </script>
 </head>
 <body>
+<h1>JSP版本</h1>
 	<div id="page">
 		<!-- main-container -->
 		<div class="main-container col2-right-layout">
@@ -52,7 +52,7 @@
 							<h2>註冊</h2>
 						</div>
 						<div class="static-contain">
-						<form action="<c:url value="/pages/register/registerForm.controller" />" method="get">
+						<form action="<c:url value="/api/member/new" />" method="post">
 							<fieldset class="group-select">
 								<ul>
 									<li id="billing-new-address-form">
@@ -60,23 +60,23 @@
 											<ul>
 												<li>
 													<div class="input-box member-account">
-														<label for="memberAccouuntTemp">帳 號<span
+														<label for="memberAccouunt">帳 號<span
 															class="required">*</span>
-														</label><br> <input type="text" id="memberAccouuntTemp"
-															name="memberAccouuntTemp" value="${param.memberAccouuntTemp}"
+														</label><br> <input type="text" id="memberAccouunt"
+															name="memberAccouunt" value="${param.memberAccouunt}"
 															title="Account" class="input-text "><br>
-															<span class="error">${errors.memberAccouuntTemp}</span>
+															<span class="error">${errors.memberAccouunt}</span>
 													</div>
 												</li>
 
 												<li>
 													<div class="input-box member-password">
-														<label for="memberPasswordTemp">密 碼<span
+														<label for="memberPassword">密 碼<span
 															class="required">*</span>
-														</label><br> <input type="text" id="memberPasswordTemp"
-															name="memberPasswordTemp" value="${param.memberPasswordTemp}"
+														</label><br> <input type="text" id="memberPassword"
+															name="memberPassword" value="${param.memberPassword}"
 															title="Password" class="input-text"><br>
-															<span class="error">${errors.memberPasswordTemp}</span>
+															<span class="error">${errors.memberPassword}</span>
 													</div>
 
 												</li>
@@ -84,78 +84,78 @@
 												<li>
 													<div class="customer-name">
 														<div class="input-box name-lastname">
-															<label for="memberLastnameTemp">姓 氏<span
+															<label for="memberLastname">姓 氏<span
 																class="required">*</span></label><br> <input type="text"
-																id="memberLastnameTemp" name="memberLastnameTemp"
-																value="${param.memberLastnameTemp}" title="Last Name"
+																id="memberLastname" name="memberLastname"
+																value="${param.memberLastname}" title="Last Name"
 																class="input-text "><br>
-																<span class="error">${errors.memberLastnameTemp}</span>
+																<span class="error">${errors.memberLastname}</span>
 														</div>
 														<div class="input-box name-firstname">
-															<label for="memberFirstnameTemp">名 字<span
+															<label for="memberFirstname">名 字<span
 																class="required">*</span></label><br> <input type="text"
-																id="memberFirstnameTemp" name="memberFirstnameTemp"
-																value="${param.memberFirstnameTemp}" title="First Name"
+																id="memberFirstname" name="memberFirstname"
+																value="${param.memberFirstname}" title="First Name"
 																class="input-text"><br>
-																<span class="error">${errors.memberFirstnameTemp}</span>
+																<span class="error">${errors.memberFirstname}</span>
 														</div>
 													</div>
 												</li>
 
 												<li>
 													<div class="input-box">
-														<label for="memberBirthTemp">生 日</label><br> <input
-															type="text" id="memberBirthTemp" name="memberBirthTemp"
-															value="${param.memberBirthTemp}" title="Birthday"
+														<label for="memberBirth">生 日</label><br> <input
+															type="text" id="memberBirth" name="memberBirth"
+															value="${param.memberBirth}" title="Birthday"
 															class="input-text"><br>
-															<span class="error">${errors.memberBirthTemp}</span>
+															<span class="error">${errors.memberBirth}</span>
 													</div>
 
 													<div class="input-box">
 														<label f>性 別</label><br>
-															<input type="radio" id="man" name="memberGenderTemp" value="male" checked>
+															<input type="radio" id="man" name="memberGender" value="male" checked>
 															  <label for="man">男生</label><br>
-															  <input type="radio" id="woman" name="memberGenderTemp" value="female">
+															  <input type="radio" id="woman" name="memberGender" value="female">
 															  <label for="woman">女生</label><br>
 															<br>
-															<span class="error">${errors.memberGenderTemp}</span>
+															<span class="error">${errors.memberGender}</span>
 													</div>
 												</li>
 												<li>
 													<div class="input-box">
-														<label for="memberNicknameTemp">暱 稱</label><br> <input type="text"
-															id="memberNicknameTemp" name="memberNicknameTemp"
-															value="${param.memberNicknameTemp}" title="NickName"
+														<label for="memberNickname">暱 稱</label><br> <input type="text"
+															id="memberNickname" name="memberNickname"
+															value="${param.memberNickname}" title="NickName"
 															class="input-text "><br>
-															<span class="error">${errors.memberNicknameTemp}</span>
+															<span class="error">${errors.memberNickname}</span>
 													</div>
 												</li>
 												<li>
 													<div class="input-box">
-														<label for="memberEmailTemp">電子信箱 <span
+														<label for="memberEmail">電子信箱 <span
 															class="required">*</span></label><br> <input type="text"
-															name="memberEmailTemp" id="memberEmailTemp"
-															value="${param.memberEmailTemp}" title="Email Address"
+															name="memberEmail" id="memberEmail"
+															value="${param.memberEmail}" title="Email Address"
 															class="input-text validate-email"><br><br>
-															<span class="error">${errors.memberEmailTemp}</span>
+															<span class="error">${errors.memberEmail}</span>
 													</div>
 												</li>
 
 												<li>
 													<div class="input-box">
-														<label for="memberTelTemp">手 機 </label><br>
-														<input type="text" name="memberTelTemp" id="memberTelTemp"
-															value="${param.memberTelTemp}" title="Cellphone"
+														<label for="memberTel">手 機 </label><br>
+														<input type="text" name="memberTel" id="memberTel"
+															value="${param.memberTel}" title="Cellphone"
 															class="input-text required-entry"><br>
-															<span class="error">${errors.memberTelTemp}</span>
+															<span class="error">${errors.memberTel}</span>
 													</div>
 												</li>
 
 												<li><label>地 址 </label><br>
-													<input type="text" title="Street Address" id="memberAddrTemp"
-													name="memberAddrTemp" value="${param.memberAddrTemp}"
+													<input type="text" title="Street Address" id="memberAddr"
+													name="memberAddr" value="${param.memberAddr}"
 													class="input-text required-entry"></li><br>
-													<span class="error">${errors.memberAddrTemp}</span>
+													<span class="error">${errors.memberAddr}</span>
 											</ul>
 										</fieldset>
 									</li>
