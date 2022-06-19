@@ -52,8 +52,10 @@
                                             <div class="new-label new-top-left">New</div>
                                             <div class="product-image">
                                                 <div class="product-full">
-                                                    <img id="product-zoom" src="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
-                                                         data-zoom-image="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg" alt="product-image"/>
+                                                    <img id="product-zoom"
+                                                         src="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
+                                                         data-zoom-image="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
+                                                         alt="product-image"/>
                                                 </div>
                                                 <div class="more-views">
                                                     <div class="slider-items-products">
@@ -65,7 +67,8 @@
                                                                     <a id="product-zoom01" href="#"
                                                                        data-image="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
                                                                        data-zoom-image="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg">
-                                                                        <img id="product-zoom1" src="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
+                                                                        <img id="product-zoom1"
+                                                                             src="https://s3.ap-northeast-1.amazonaws.com/tedawsbucket20220530/javaproject/2022_05_31_22_28_40_191.jpg"
                                                                              alt="product-image"/>
                                                                     </a>
                                                                 </div>
@@ -73,7 +76,8 @@
                                                                     <a id="product-zoom02" href="#"
                                                                        data-image="/Users/kevinchan/Desktop/image/ring.jpg"
                                                                        data-zoom-image="/Users/kevinchan/Desktop/image/ring.jpg">
-                                                                        <img id="product-zoom2" src="/Users/kevinchan/Desktop/image/ring.jpg"
+                                                                        <img id="product-zoom2"
+                                                                             src="/Users/kevinchan/Desktop/image/ring.jpg"
                                                                              alt="product-image"/>
                                                                     </a>
                                                                 </div>
@@ -81,7 +85,8 @@
                                                                     <a id="product-zoom03" href="#"
                                                                        data-image="/Users/kevinchan/Desktop/image/ring.jpg"
                                                                        data-zoom-image="/Users/kevinchan/Desktop/image/ring.jpg">
-                                                                        <img id="product-zoom3" src="/Users/kevinchan/Desktop/image/ring.jpg"
+                                                                        <img id="product-zoom3"
+                                                                             src="/Users/kevinchan/Desktop/image/ring.jpg"
                                                                              alt="product-image"/>
                                                                     </a>
                                                                 </div>
@@ -141,7 +146,8 @@
                                                                     class="reduced items-count" type="button">
                                                                 <i class="fa fa-minus">&nbsp;</i>
                                                             </button>
-                                                            <input type="text" value="1" class="input-text qty" title="Qty" maxlength="12" id="qty" name="qty">
+                                                            <input type="text" value="1" class="input-text qty"
+                                                                   title="Qty" maxlength="12" id="qty" name="qty">
                                                             <button
                                                                     onClick="plus()"
                                                                     class="increase items-count" type="button">
@@ -922,7 +928,7 @@
     function plus() {
         var result = document.getElementById('qty');
         var qty = result.value;
-        if( !isNaN( qty )) result.value++;
+        if (!isNaN(qty)) result.value++;
 
     };
     //購物車數量的增減按鈕(僅前端計算而已)
@@ -975,7 +981,6 @@
         addProductToCart(productID);
     })
 
-
     //呼叫CartServlet加入購物車
     function addProductToCart(pid) {
         $.ajax({
@@ -987,7 +992,7 @@
             data: {
                 pdaction: "addToCart",
                 editProductId: pid,
-                quantity:`${productQty}`
+                quantity: `${productQty}`
             },
             success: function (response) {
                 let res = response.toString().substring(0, 7);

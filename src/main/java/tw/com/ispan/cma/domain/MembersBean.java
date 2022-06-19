@@ -13,7 +13,7 @@ public class MembersBean {
 	private Integer memberId;
 	
 	@Column(name = "member_accouunt")
-	private String memberAccount;
+	private String memberAccouunt;
 	
 	@Column(name = "member_password")
 	private String memberPassword;
@@ -56,7 +56,7 @@ public class MembersBean {
 
 	@Override
 	public String toString() {
-		return "MembersBean [memberId=" + memberId + ", memberAccouunt=" + memberAccount + ", memberPassword="
+		return "MembersBean [memberId=" + memberId + ", memberAccouunt=" + memberAccouunt + ", memberPassword="
 				+ memberPassword + ", memberLastname=" + memberLastname + ", memberFirstname=" + memberFirstname
 				+ ", memberGender=" + memberGender + ", memberNickname=" + memberNickname + ", memberEmail="
 				+ memberEmail + ", memberTel=" + memberTel + ", memberAddr=" + memberAddr + ", memberBirth="
@@ -73,11 +73,11 @@ public class MembersBean {
 	}
 
 	public String getMemberAccouunt() {
-		return memberAccount;
+		return memberAccouunt;
 	}
 
 	public void setMemberAccouunt(String memberAccouunt) {
-		this.memberAccount = memberAccouunt;
+		this.memberAccouunt = memberAccouunt;
 	}
 
 	public String getMemberPassword() {
